@@ -31,30 +31,30 @@ export const cycles: Cycle[] = [
 export const stats = {
   totalVehicles: 128,
   activeRides: 34,
-  revenueToday: 4820,
+  revenueToday: 657,
   utilization: 67,
   maintenance: 6,
   hubs: 4,
 };
 
 export const bookings = [
-  { id: "BK-2401", user: "Lena Vogt", cycle: "AVX3 Urban E1", start: "08:14", duration: "42m", distance: "6.2 km", status: "Active", revenue: "€8.40" },
-  { id: "BK-2400", user: "Markus Bauer", cycle: "AVX3 Velocity X", start: "07:58", duration: "1h 12m", distance: "14.3 km", status: "Active", revenue: "€14.40" },
-  { id: "BK-2399", user: "Sara Klein", cycle: "AVX3 Aero Carbon", start: "07:30", duration: "28m", distance: "4.8 km", status: "Completed", revenue: "€5.60" },
-  { id: "BK-2398", user: "Tobias Reich", cycle: "AVX3 Cargo Pro", start: "07:12", duration: "1h 45m", distance: "18.1 km", status: "Completed", revenue: "€21.00" },
-  { id: "BK-2397", user: "Mira Hoffmann", cycle: "AVX3 City Glide", start: "06:55", duration: "33m", distance: "5.1 km", status: "Completed", revenue: "€6.60" },
-  { id: "BK-2396", user: "Jonas Weber", cycle: "AVX3 Trail S", start: "06:20", duration: "2h 04m", distance: "26.7 km", status: "Completed", revenue: "€24.80" },
+  { id: "BK-2401", user: "Lena Vogt", cycle: "AVX3 Urban E1", start: "08:14", duration: "42m", distance: "6.2 km", status: "Active", revenue: "₹10.50" },
+  { id: "BK-2400", user: "Markus Bauer", cycle: "AVX3 Velocity X", start: "07:58", duration: "1h 12m", distance: "14.3 km", status: "Active", revenue: "₹12" },
+  { id: "BK-2399", user: "Sara Klein", cycle: "AVX3 Aero Carbon", start: "07:30", duration: "28m", distance: "4.8 km", status: "Completed", revenue: "₹9" },
+  { id: "BK-2398", user: "Tobias Reich", cycle: "AVX3 Cargo Pro", start: "07:12", duration: "1h 45m", distance: "18.1 km", status: "Completed", revenue: "₹12" },
+  { id: "BK-2397", user: "Mira Hoffmann", cycle: "AVX3 City Glide", start: "06:55", duration: "33m", distance: "5.1 km", status: "Completed", revenue: "₹10" },
+  { id: "BK-2396", user: "Jonas Weber", cycle: "AVX3 Trail S", start: "06:20", duration: "2h 04m", distance: "26.7 km", status: "Completed", revenue: "₹12" },
 ];
 
 export const rideHistory = [
-  { id: "R-118", date: "Apr 28", cycle: "AVX3 Urban E1", distance: "7.2 km", duration: "31m", cost: "€6.20" },
-  { id: "R-117", date: "Apr 25", cycle: "AVX3 Velocity X", distance: "12.4 km", duration: "48m", cost: "€9.60" },
-  { id: "R-116", date: "Apr 22", cycle: "AVX3 City Glide", distance: "4.1 km", duration: "18m", cost: "€3.60" },
-  { id: "R-115", date: "Apr 20", cycle: "AVX3 Aero Carbon", distance: "21.8 km", duration: "1h 12m", cost: "€14.40" },
+  { id: "R-118", date: "Apr 28", cycle: "AVX3 Urban E1", distance: "7.2 km", duration: "31m", cost: "₹8" },
+  { id: "R-117", date: "Apr 25", cycle: "AVX3 Velocity X", distance: "12.4 km", duration: "48m", cost: "₹12" },
+  { id: "R-116", date: "Apr 22", cycle: "AVX3 City Glide", distance: "4.1 km", duration: "18m", cost: "₹5" },
+  { id: "R-115", date: "Apr 20", cycle: "AVX3 Aero Carbon", distance: "21.8 km", duration: "1h 12m", cost: "₹12" },
 ];
 
 export const pricingPlans = [
-  { name: "Per Minute", price: "€0.20", unit: "/ minute", desc: "Pay only for what you ride. No commitment.", features: ["Unlock fee €1.00", "Available 24/7", "Any AVX3 unit"], featured: false },
-  { name: "Hourly", price: "€6.00", unit: "/ hour", desc: "Best for errands and short trips.", features: ["No unlock fee", "Pause up to 10 min", "Includes helmet"], featured: true },
-  { name: "Day Pass", price: "€24.00", unit: "/ day", desc: "Explore the whole city, your way.", features: ["Unlimited rides", "Performance units included", "Insurance bundled"], featured: false },
+  { name: "Per Minute", price: "₹0.25", unit: "/ minute", desc: "Pay only for what you ride. No commitment.", features: ["Unlock fee ₹2", "Available 24/7", "Any AVX3 unit"], featured: false },
+  { name: "Hourly", price: "₹12", unit: "/ hour", desc: "Best for errands and short trips.", features: ["No unlock fee", "Pause up to 10 min", "Includes helmet"], featured: true },
+  { name: "Day Pass", price: "₹250", unit: "/ day", desc: "Explore the whole city, your way.", features: ["Unlimited rides", "Performance units included", "Insurance bundled"], featured: false },
 ];
