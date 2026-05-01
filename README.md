@@ -1,3 +1,3 @@
-# Welcome to your Lovable project
+# AVX3 Cycle Connect
 
-TODO: Document your project here
+A smart bike rental system with admin dashboard and user app.

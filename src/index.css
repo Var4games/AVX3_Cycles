@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import 'leaflet/dist/leaflet.css';
+@import 'leaflet.markercluster/dist/MarkerCluster.css';
+@import 'leaflet.markercluster/dist/MarkerCluster.Default.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 40% 4%;
+    --foreground: 210 30% 96%;
+
+    --card: 220 35% 7%;
+    --card-foreground: 210 30% 96%;
+
+    --popover: 220 35% 7%;
+    --popover-foreground: 210 30% 96%;
+
+    --primary: 180 95% 55%;
+    --primary-foreground: 220 40% 4%;
+
+    --secondary: 220 30% 12%;
+    --secondary-foreground: 210 30% 96%;
+
+    --muted: 220 25% 11%;
+    --muted-foreground: 215 15% 60%;
+
+    --accent: 200 90% 60%;
+    --accent-foreground: 220 40% 4%;
+
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 210 30% 96%;
+
+    --warning: 38 92% 55%;
+    --success: 145 70% 50%;
+
+    --border: 220 25% 14%;
+    --input: 220 25% 14%;
+    --ring: 180 95% 55%;
+
+    --radius: 0.25rem;
+
+    --sidebar-background: 220 40% 5%;
+    --sidebar-foreground: 215 15% 65%;
+    --sidebar-primary: 180 95% 55%;
+    --sidebar-primary-foreground: 220 40% 4%;
+    --sidebar-accent: 220 30% 10%;
+    --sidebar-accent-foreground: 210 30% 96%;
+    --sidebar-border: 220 25% 12%;
+    --sidebar-ring: 180 95% 55%;
+
+    --shadow-glow: 0 0 40px -10px hsl(180 95% 55% / 0.4);
+    --shadow-elevated: 0 20px 50px -20px hsl(220 50% 0% / 0.8);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    color-scheme: dark;
+  }
+  body {
+    @apply bg-background text-foreground;
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% -10%, hsl(200 80% 12% / 0.5), transparent),
+      radial-gradient(ellipse 60% 40% at 100% 100%, hsl(180 80% 10% / 0.3), transparent);
+    background-attachment: fixed;
+  }
+  .font-display {
+    font-family: 'Space Grotesk', 'Inter', sans-serif;
+    letter-spacing: -0.02em;
+  }
+  .font-mono {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-card/40 backdrop-blur-xl border border-border;
+    box-shadow: inset 0 1px 0 hsl(210 30% 96% / 0.04);
+  }
+  .glass-hover {
+    @apply transition-all duration-300 hover:border-primary/40 hover:bg-card/60;
+  }
+  .glow-text {
+    text-shadow: 0 0 30px hsl(var(--primary) / 0.5);
+  }
+  .grid-bg {
+    background-image:
+      linear-gradient(hsl(var(--border) / 0.5) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--border) / 0.5) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+  .scan-line::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 0%, hsl(var(--primary) / 0.06) 50%, transparent 100%);
+    pointer-events: none;
+    animation: scan 4s linear infinite;
+  }
+}
+
+@keyframes scan {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 hsl(var(--primary) / 0.4); }
+  50% { box-shadow: 0 0 0 8px hsl(var(--primary) / 0); }
+}
+
+.pulse-dot {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* ============= Leaflet dark theme ============= */
+.avx-map,
+.avx-map .leaflet-container {
+  background: hsl(var(--background));
+  font-family: 'Inter', system-ui, sans-serif;
+}
+.avx-map .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) brightness(0.85) contrast(0.95) saturate(0.7);
+}
+.avx-map .leaflet-control-zoom a,
+.avx-map .leaflet-control-attribution {
+  background: hsl(var(--card)) !important;
+  color: hsl(var(--foreground)) !important;
+  border-color: hsl(var(--border)) !important;
+}
+.avx-map .leaflet-control-attribution a { color: hsl(var(--primary)) !important; }
+.avx-map .leaflet-popup-content-wrapper,
+.avx-map .leaflet-popup-tip {
+  background: hsl(var(--card));
+  color: hsl(var(--foreground));
+  border: 1px solid hsl(var(--border));
+  border-radius: 4px;
+  box-shadow: var(--shadow-elevated);
+}
+.avx-map .leaflet-popup-content { margin: 0; min-width: 220px; }
+.avx-map .leaflet-popup-close-button { color: hsl(var(--muted-foreground)) !important; }
+
+.avx-marker {
+  display: flex; align-items: center; justify-content: center;
+  width: 32px; height: 32px;
+  background: hsl(var(--card));
+  border: 1.5px solid hsl(var(--border));
+  border-radius: 999px;
+  color: hsl(var(--foreground));
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; font-weight: 600;
+  box-shadow: 0 4px 12px hsl(220 50% 0% / 0.6);
+  transition: transform .2s, border-color .2s;
+}
+.avx-marker:hover { transform: scale(1.1); border-color: hsl(var(--primary)); }
+.avx-marker.is-nearest {
+  border-color: hsl(var(--primary));
+  color: hsl(var(--primary));
+  box-shadow: 0 0 0 3px hsl(var(--primary) / 0.2), 0 0 20px hsl(var(--primary) / 0.5);
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+.avx-user-marker {
+  width: 18px; height: 18px;
+  background: hsl(var(--accent));
+  border: 3px solid hsl(var(--background));
+  border-radius: 999px;
+  box-shadow: 0 0 0 4px hsl(var(--accent) / 0.3), 0 0 16px hsl(var(--accent) / 0.6);
+}
+
+.avx-map .marker-cluster-small,
+.avx-map .marker-cluster-medium,
+.avx-map .marker-cluster-large {
+  background: hsl(var(--primary) / 0.2) !important;
+}
+.avx-map .marker-cluster-small div,
+.avx-map .marker-cluster-medium div,
+.avx-map .marker-cluster-large div {
+  background: hsl(var(--primary) / 0.9) !important;
+  color: hsl(var(--primary-foreground)) !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  font-weight: 600 !important;
+}
