@@ -29,7 +29,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
+      <BrowserRouter basename="/AVX3_Cycles">
         <Routes>
           <Route element={<UserLayout />}>
             <Route path="/" element={<Home />} />
